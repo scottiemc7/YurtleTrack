@@ -1,0 +1,15 @@
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Release\QuickLaunch.exe.config
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Release\QuickLaunch.exe
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Release\QuickLaunch.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Release\Ninject.dll
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Release\QuickLaunch.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Release\QuickLaunch.Form1.resources
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Release\QuickLaunch.csproj.GenerateResource.Cache
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Release\QuickLaunch.exe
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Release\QuickLaunch.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Release\QuickLaunch.exe.config
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Release\QuickLaunch.exe
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Release\QuickLaunch.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Release\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Release\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Release\Ninject.dll

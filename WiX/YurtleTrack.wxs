@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <!-- Set up our variables-->
+    <?if $(env.Platform) = x64 ?>
+    <?define ProductName = "YurtleTrack (x64)" ?>
+    <?define Win64 = "yes" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+    <?else ?>
+    <?define ProductName = "YurtleTrack (x86)" ?>
+    <?define Win64 = "no" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+    <?endif ?>
+    <Product Id="F1455DD1-7A9D-40D2-851B-C83A48D664AC" Name="$(var.ProductName)" Language="1033" Version="1.0.0.0" Manufacturer="WixEdit" UpgradeCode="C93D631D-D46A-42F4-88C9-440A5CA3560A">
+        <Package Description="Test file in a Product" Comments="Simple test" InstallerVersion="200" Compressed="yes" Platform="$(env.Platform)" />
+        <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="$(var.PlatformProgramFilesFolder)">
+                <Directory Id="INSTALLLOCATION" Name="SRMC">
+                    <Directory Id="INSTALLDIR" Name="YurtleTrack" />
+                </Directory>
+            </Directory>
+        </Directory>
+        <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+            <Component Directory="INSTALLDIR" Win64="$(var.Win64)" Guid="2783E6AE-B5A3-4214-9DFB-658D29DAFB1F" Id="YurtleTrackDLL">
+                <File Source="..\bin\$(env.Platform)\YurtleTrack.dll" Id="YurtleTrack.dll" />
+            </Component>
+            <Component Id="RegistrySettings" Guid="CAC846E2-AD47-4E38-85FB-2DA549CA1DE7" Win64="$(var.Win64)" Directory="INSTALLDIR">
+                <RegistryKey Root="HKLM" Key="Software\Classes\YurtleTrack.YurtleTrackPlugin" Action="createAndRemoveOnUninstall" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\YurtleTrack.YurtleTrackPlugin" Value="YurtleTrack ($(env.Platform)) v($(env.YurtleVersion))" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\YurtleTrack.YurtleTrackPlugin\CLSID" Value="{0044F6C0-B999-11E1-AFA6-0800200C9A66}" Type="string" />
+                <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}" Action="createAndRemoveOnUninstall" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}" Value="YurtleTrack ($(env.Platform)) v($(env.YurtleVersion))" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32" Value="mscoree.dll" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32" Name="ThreadingModel" Value="Both" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32" Name="Class" Value="YurtleTrack.YurtleTrackPlugin" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32" Name="Assembly" Value="YurtleTrack, Version=$(env.YurtleVersion), Culture=neutral, PublicKeyToken=71537f17a58dfcba" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32" Name="CodeBase" Value="[INSTALLDIR]YurtleTrack.dll" Type="string" />
+                <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InprocServer32\$(env.YurtleVersion)" Action="createAndRemoveOnUninstall" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32\$(env.YurtleVersion)" Name="Class" Value="YurtleTrack.YurtleTrackPlugin" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32\$(env.YurtleVersion)" Name="Assembly" Value="YurtleTrack, Version=$(env.YurtleVersion), Culture=neutral, PublicKeyToken=71537f17a58dfcba" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32\$(env.YurtleVersion)" Name="RuntimeVersion" Value="v4.0.30319" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\InProcServer32\$(env.YurtleVersion)" Name="CodeBase" Value="[INSTALLDIR]YurtleTrack.dll" Type="string" />
+                <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\ProgId" Value="YurtleTrack.YurtleTrackPlugin" Type="string" />
+                <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Action="createAndRemoveOnUninstall" />
+                <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\Implemented Categories\{3494FA92-B139-4730-9591-01135D5E7831}" Action="createAndRemoveOnUninstall" />
+            </Component>
+            <Component Guid="79473675-53C3-4314-8777-854710D610D4" Id="NinjectDLL" Directory="INSTALLDIR" Win64="$(var.Win64)">
+                <File Name="Ninject.dll" Source="..\bin\$(env.Platform)\Ninject.dll" />
+            </Component>
+        </Feature>
+        <UI Id="WixUI_Minimal">
+            <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+            <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+            <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+            <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+            <Property Id="WixUI_Mode" Value="Minimal" />
+            <DialogRef Id="ErrorDlg" />
+            <DialogRef Id="FatalError" />
+            <DialogRef Id="FilesInUse" />
+            <DialogRef Id="MsiRMFilesInUse" />
+            <DialogRef Id="PrepareDlg" />
+            <DialogRef Id="ProgressDlg" />
+            <DialogRef Id="ResumeDlg" />
+            <DialogRef Id="UserExit" />
+            <!-- This is the welcome dialog you specified-->
+            <DialogRef Id="WelcomeDlg" />
+            <!-- Hook the new welcome dialog to the next one in the stack-->
+            <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="PrepareDlg">1</Publish>
+            <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+            <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+            <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+            <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+            <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+            <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
+            <Property Id="ARPNOMODIFY" Value="1" />
+        </UI>
+        <UIRef Id="WixUI_Common" />
+        <PropertyRef Id="NETFRAMEWORK40FULL" />
+        <Property Id="MSIUSEREALADMINDETECTION" Value="1" />
+        <Condition Message="This application requires .NET Framework 4.0">Installed OR NETFRAMEWORK40FULL</Condition>
+    </Product>
+</Wix>

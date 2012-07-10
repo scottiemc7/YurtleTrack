@@ -1,0 +1,11 @@
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.Properties.Resources.resources
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.csproj.GenerateResource.Cache
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.View.FormBugListView.resources
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.View.FormOptions.resources
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x86\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x86\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x86\Debug\Ninject.dll

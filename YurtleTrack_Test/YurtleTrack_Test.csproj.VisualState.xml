@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\YurtleTrack_Test.csproj</TopNode>
+  <SelectedNode>[0-1010]YurtleTrack_Test</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\YurtleTrack_Test.csproj" Expanded="true" />
+    <Node UniqueName="[0-1009]D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\Debug\YurtleTrack_Test.dll" Expanded="true" />
+    <Node UniqueName="[0-1010]YurtleTrack_Test" Expanded="true" />
+    <Node UniqueName="[0-1001]YurtleTrack_Test.BugListViewPresenter_Test" Expanded="true" />
+    <Node UniqueName="[0-1007]YurtleTrack_Test.OptionsPresenter_Test" Expanded="true" />
+    <Node UniqueName="[0-1005]YurtleTrack_Test.SingleBugViewPresenter_Test" Expanded="true" />
+  </Nodes>
+</VisualState>

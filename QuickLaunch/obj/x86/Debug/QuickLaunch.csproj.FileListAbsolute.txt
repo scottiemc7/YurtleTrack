@@ -1,0 +1,27 @@
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Debug\QuickLaunch.exe
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Debug\QuickLaunch.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.Form1.resources
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.csproj.GenerateResource.Cache
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.exe
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\Debug\QuickLaunch.exe.config
+D:\DropBox\YurtleTrack\QuickLaunch\bin\Debug\QuickLaunch.exe.config
+D:\DropBox\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.exe
+D:\DropBox\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.pdb
+D:\DropBox\YurtleTrack\QuickLaunch\bin\Debug\QuickLaunch.exe
+D:\DropBox\YurtleTrack\QuickLaunch\bin\Debug\QuickLaunch.pdb
+D:\DropBox\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.csprojResolveAssemblyReference.cache
+D:\DropBox\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.Form1.resources
+D:\DropBox\YurtleTrack\QuickLaunch\obj\x86\Debug\QuickLaunch.csproj.GenerateResource.Cache
+D:\DropBox\YurtleTrack\QuickLaunch\bin\Debug\YurtleTrack.dll
+D:\DropBox\YurtleTrack\QuickLaunch\bin\Debug\YurtleTrack.pdb
+D:\DropBox\YurtleTrack\QuickLaunch\bin\Debug\Ninject.dll
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Debug\QuickLaunch.exe.config
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Debug\QuickLaunch.exe
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Debug\QuickLaunch.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\QuickLaunch\bin\x86\Debug\Ninject.dll

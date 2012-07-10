@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\YurtleTrack_Test.csproj" total="5" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-06-24" time="20:17:36">
+  <environment nunit-version="2.6.0.12051" clr-version="2.0.50727.5456" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test" machine-name="SCOTT-ZENBOOK" user="Scott" user-domain="Scott-Zenbook" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Project" name="D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\YurtleTrack_Test.csproj" executed="True" result="Success" success="True" time="0.754" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\Debug\YurtleTrack_Test.dll" executed="True" result="Success" success="True" time="0.734" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="YurtleTrack_Test" executed="True" result="Success" success="True" time="0.734" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="BugListViewPresenter_Test" executed="True" result="Success" success="True" time="0.610" asserts="0">
+                <results>
+                  <test-case name="YurtleTrack_Test.BugListViewPresenter_Test.DisplayBugDetails_Should_Set_Bugs_From_BugService" executed="True" result="Success" success="True" time="0.556" asserts="0" />
+                  <test-case name="YurtleTrack_Test.BugListViewPresenter_Test.DisplayProjectDetails_Should_Set_Bug_Count_From_BugService" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                  <test-case name="YurtleTrack_Test.BugListViewPresenter_Test.Initalize_Should_Set_ProjectList_From_BugService" executed="True" result="Success" success="True" time="0.023" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="OptionsPresenter_Test" executed="True" result="Success" success="True" time="0.090" asserts="0">
+                <results>
+                  <test-case name="YurtleTrack_Test.OptionsPresenter_Test.Initalize_Sets_URL_On_View" executed="True" result="Success" success="True" time="0.088" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="SingleBugViewPresenter_Test" executed="True" result="Success" success="True" time="0.024" asserts="0">
+                <results>
+                  <test-case name="YurtleTrack_Test.SingleBugViewPresenter_Test.ShowBug_Sets_BugProperty_On_View" executed="True" result="Success" success="True" time="0.023" asserts="0" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

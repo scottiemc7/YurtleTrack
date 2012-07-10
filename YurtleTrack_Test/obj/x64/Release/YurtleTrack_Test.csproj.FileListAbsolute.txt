@@ -1,0 +1,9 @@
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x64\Release\YurtleTrack_Test.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x64\Release\YurtleTrack_Test.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x64\Release\nunit.framework.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x64\Release\Rhino.Mocks.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x64\Release\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x64\Release\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\obj\x64\Release\YurtleTrack_Test.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\obj\x64\Release\YurtleTrack_Test.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\obj\x64\Release\YurtleTrack_Test.pdb

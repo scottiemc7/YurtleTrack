@@ -1,0 +1,20 @@
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.Properties.Resources.resources
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.csproj.GenerateResource.Cache
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.View.FormBugListView.resources
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\Debug\Ninject.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.View.FormOptions.resources
+D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.Properties.Resources.resources
+D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.View.FormBugListView.resources
+D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.View.FormOptions.resources
+D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.csproj.GenerateResource.Cache
+D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.dll
+D:\DropBox\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.dll
+D:\DropBox\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.pdb
+D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.csprojResolveAssemblyReference.cache
+D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.csprojResolveAssemblyReference.cache
+D:\Dropbox\YurtleTrack\YurtleTrack\bin\Debug\Ninject.dll
