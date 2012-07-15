@@ -216,5 +216,21 @@ namespace YurtleTrack.View
 		{
 			this.DialogResult = System.Windows.Forms.DialogResult.OK;
 		}
+
+		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+		{
+			//Override the AcceptButton if we are in the page combo
+			if (keyData == Keys.Enter && comboBoxPage.Focused)
+			{
+				int newPage;
+				if (!Int32.TryParse(comboBoxPage.Text, out newPage))
+					newPage = 1;
+
+				Page = newPage;
+				return true;
+			}
+			else
+				return base.ProcessCmdKey(ref msg, keyData);
+		}
 	}
 }

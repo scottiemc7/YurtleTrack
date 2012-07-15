@@ -32,7 +32,7 @@ namespace QuickLaunch
 		private void button2_Click(object sender, EventArgs e)
 		{
 			if (plg.HasOptions())
-				Console.WriteLine(plg.ShowOptionsDialog(this.Handle, string.Empty));
+				parameters = plg.ShowOptionsDialog(this.Handle, string.Empty);
 		}
 	}
 }
