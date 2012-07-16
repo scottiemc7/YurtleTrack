@@ -64,8 +64,11 @@ namespace YurtleTrack
         public string GetCommitMessage2( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList,
                                string originalMessage, string bugID, out string bugIDOut, out string[] revPropNames, out string[] revPropValues )
         {
-            try
-            {
+
+			try
+			{
+				Cursor.Current = Cursors.AppStarting;
+
 				revPropNames = new string[0];
 				revPropValues = new string[0];
 				bugIDOut = string.Empty;
@@ -91,12 +94,16 @@ namespace YurtleTrack
 				}//end if
 
 				return sb.ToString();
-            }
-            catch ( Exception ex )
-            {
-				MessageBox.Show( ex.ToString( ) );
-                throw;
-            }
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.ToString());
+				throw;
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+			}
         }
 
         public string CheckCommit( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList, string commitMessage )

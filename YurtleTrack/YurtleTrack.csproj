@@ -179,7 +179,7 @@
 copy "$(TargetPath)" "$(SolutionDir)bin\$(PlatformName)\$(TargetFileName)" /y
 copy "$(ProjectDir)Dependencies\*.dll" "$(SolutionDir)bin\$(PlatformName)\" /y
 cd "$(SolutionDir)WiX"
-compile.bat 1.0.1.0 $(PlatformName)
+compile.bat 1.1.0.0 $(PlatformName)
 :END</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

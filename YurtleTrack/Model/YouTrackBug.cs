@@ -25,6 +25,12 @@ namespace YurtleTrack.Model
 			set;
 		}
 
+		public bool IsResolved
+		{
+			get;
+			set;
+		}
+
 		public override bool Equals(object obj)
 		{
 			// If parameter is null return false.

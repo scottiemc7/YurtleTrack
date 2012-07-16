@@ -114,7 +114,7 @@ namespace YurtleTrack.Service
 			XmlNodeList bugNodes = doc.SelectNodes("/issues/issue");
 			foreach (XmlNode bugNode in bugNodes)
 			{
-				IBug bug = new YouTrackBug() { ID = bugNode.Attributes["id"].Value };
+				IBug bug = new YouTrackBug() { ID = bugNode.Attributes["id"].Value, IsResolved = false };
 
 				//Get description node
 				XmlNode desNode = bugNode.SelectSingleNode("field[@name='description']/value");
@@ -125,6 +125,13 @@ namespace YurtleTrack.Service
 				XmlNode sumNode = bugNode.SelectSingleNode("field[@name='summary']/value");
 				if (sumNode != null)
 					bug.Summary = sumNode.InnerText;
+
+				//Find out if resolved
+				XmlNode resolvedNode = bugNode.SelectSingleNode("field[@name='resolved']/value");
+				if (resolvedNode != null)
+					bug.IsResolved = true;
+				else
+					bug.IsResolved = false;
 
 				bugs.Add(bug);
 			}//end foreach

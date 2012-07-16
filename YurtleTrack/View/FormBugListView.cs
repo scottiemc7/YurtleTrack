@@ -50,13 +50,22 @@ namespace YurtleTrack.View
 
 		void bindingSourceBugs_DataSourceChanged(object sender, EventArgs e)
 		{
-			if (SelectedBugs.Count == 0)
-				return;
-
 			foreach (DataGridViewRow row in dataGridViewBugs.Rows)
 			{
+				IBug bug = row.DataBoundItem as IBug;
+				if (bug == null)
+					continue;
+
 				if (SelectedBugs.Contains((IBug)row.DataBoundItem))
 					row.Cells[0].Value = true;
+
+				if (!bug.IsResolved)
+					continue;
+
+				if (row.Cells[1].Style.Font == null)
+					row.Cells[1].Style.Font = new Font(dataGridViewBugs.DefaultCellStyle.Font, FontStyle.Strikeout);
+				else
+					row.Cells[1].Style.Font = new Font(row.Cells[1].Style.Font, FontStyle.Strikeout);
 			}//end foreach
 		}
 
@@ -232,5 +241,6 @@ namespace YurtleTrack.View
 			else
 				return base.ProcessCmdKey(ref msg, keyData);
 		}
+
 	}
 }

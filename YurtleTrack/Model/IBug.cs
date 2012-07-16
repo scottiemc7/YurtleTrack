@@ -10,5 +10,6 @@ namespace YurtleTrack.Model
 		string ID { get; set; }
 		string Description { get; set; }
 		string Summary { get; set; }
+		bool IsResolved { get; set; }
 	}
 }
