@@ -40,6 +40,9 @@
 			this.buttonOK = new System.Windows.Forms.Button();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.textBoxFilter = new System.Windows.Forms.TextBox();
+			this.buttonClearFilter = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewBugs)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceBugs)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceProjects)).BeginInit();
@@ -148,6 +151,36 @@
 			this.label2.TabIndex = 9;
 			this.label2.Text = "Page:";
 			// 
+			// label3
+			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(352, 16);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(43, 13);
+			this.label3.TabIndex = 10;
+			this.label3.Text = "Bug ID:";
+			// 
+			// textBoxFilter
+			// 
+			this.textBoxFilter.AcceptsReturn = true;
+			this.textBoxFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxFilter.Location = new System.Drawing.Point(401, 13);
+			this.textBoxFilter.Name = "textBoxFilter";
+			this.textBoxFilter.Size = new System.Drawing.Size(84, 20);
+			this.textBoxFilter.TabIndex = 11;
+			// 
+			// buttonClearFilter
+			// 
+			this.buttonClearFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonClearFilter.Location = new System.Drawing.Point(491, 11);
+			this.buttonClearFilter.Name = "buttonClearFilter";
+			this.buttonClearFilter.Size = new System.Drawing.Size(39, 23);
+			this.buttonClearFilter.TabIndex = 12;
+			this.buttonClearFilter.Text = "Clear";
+			this.buttonClearFilter.UseVisualStyleBackColor = true;
+			this.buttonClearFilter.Click += new System.EventHandler(this.buttonClearFilter_Click);
+			// 
 			// FormBugListView
 			// 
 			this.AcceptButton = this.buttonOK;
@@ -156,6 +189,9 @@
 			this.CancelButton = this.buttonCancel;
 			this.ClientSize = new System.Drawing.Size(542, 334);
 			this.ControlBox = false;
+			this.Controls.Add(this.buttonClearFilter);
+			this.Controls.Add(this.textBoxFilter);
+			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.buttonOK);
@@ -190,5 +226,8 @@
 		private System.Windows.Forms.Button buttonOK;
 		private System.Windows.Forms.Button buttonCancel;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TextBox textBoxFilter;
+		private System.Windows.Forms.Button buttonClearFilter;
 	}
 }

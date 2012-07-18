@@ -32,7 +32,8 @@ namespace YurtleTrack.View
 			//Set up grid
 			dataGridViewBugs.Columns.Add(new DataGridViewCheckBoxColumn() { ReadOnly = false, AutoSizeMode = DataGridViewAutoSizeColumnMode.None, Resizable = DataGridViewTriState.False, Width = 20 });
 			dataGridViewBugs.Columns.Add(new DataGridViewTextBoxColumn() { DataPropertyName = "ID", ReadOnly = true, Resizable = DataGridViewTriState.True });
-			dataGridViewBugs.Columns.Add(new DataGridViewLinkColumn() { LinkBehavior = LinkBehavior.NeverUnderline, UseColumnTextForLinkValue = true, Text = "view", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill, Resizable = DataGridViewTriState.True });
+			dataGridViewBugs.Columns.Add(new DataGridViewTextBoxColumn() { DataPropertyName = "Description", ReadOnly = true, Resizable = DataGridViewTriState.True, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+			dataGridViewBugs.Columns.Add(new DataGridViewLinkColumn() { LinkBehavior = LinkBehavior.NeverUnderline, UseColumnTextForLinkValue = true, Text = "view", ReadOnly = true, Resizable = DataGridViewTriState.False, Width = 50, DefaultCellStyle = new DataGridViewCellStyle(dataGridViewBugs.DefaultCellStyle) { Alignment = DataGridViewContentAlignment.MiddleCenter } });
 
 			dataGridViewBugs.CellContentClick += new DataGridViewCellEventHandler(dataGridViewBugs_CellContentClick);
 			bindingSourceProjects.CurrentChanged += (s, ea) => { if (!bindingSourceProjects.IsBindingSuspended) SelectedProject = bindingSourceProjects.Current as IProject; };
@@ -66,6 +67,10 @@ namespace YurtleTrack.View
 					row.Cells[1].Style.Font = new Font(dataGridViewBugs.DefaultCellStyle.Font, FontStyle.Strikeout);
 				else
 					row.Cells[1].Style.Font = new Font(row.Cells[1].Style.Font, FontStyle.Strikeout);
+				if (row.Cells[2].Style.Font == null)
+					row.Cells[2].Style.Font = new Font(dataGridViewBugs.DefaultCellStyle.Font, FontStyle.Strikeout);
+				else
+					row.Cells[2].Style.Font = new Font(row.Cells[2].Style.Font, FontStyle.Strikeout);
 			}//end foreach
 		}
 
@@ -212,7 +217,50 @@ namespace YurtleTrack.View
 				for (int i = 1; i <= totalPages; i++)
 					comboBoxPage.Items.Add(i);
 			}
-		}			
+		}
+
+		public string FilterBy
+		{
+			get
+			{
+				return "Issue ID";
+			}
+			set { throw new NotImplementedException(); }
+		}
+
+		private bool _isBusy;
+		public bool IsBusy
+		{
+			get 
+			{
+				return _isBusy; 
+			}
+			set
+			{
+				_isBusy = value;
+				if (_isBusy)
+					Cursor.Current = Cursors.WaitCursor;
+				else
+					Cursor.Current = Cursors.Default;
+			}
+		}
+
+		private string _filterValue;
+		public string FilterValue
+		{
+			get
+			{
+				return _filterValue;
+			}
+			set
+			{
+				_presenter.SuspendBindings();
+				_filterValue = value;
+				Page = 1;
+				_presenter.ResumeBindings();
+				_presenter.DisplayBugDetails();
+			}
+		}
 
 		private void buttonClear_Click(object sender, EventArgs e)
 		{
@@ -228,19 +276,36 @@ namespace YurtleTrack.View
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 		{
-			//Override the AcceptButton if we are in the page combo
-			if (keyData == Keys.Enter && comboBoxPage.Focused)
+			//Override the AcceptButton if we are in the page combo or filter tb
+			if (keyData == Keys.Enter)
 			{
-				int newPage;
-				if (!Int32.TryParse(comboBoxPage.Text, out newPage))
-					newPage = 1;
+				if (comboBoxPage.Focused)
+				{
+					//Switch pages
+					int newPage;
+					if (!Int32.TryParse(comboBoxPage.Text, out newPage))
+						newPage = 1;
 
-				Page = newPage;
-				return true;
+					Page = newPage;
+					return true;
+				}
+				else if (textBoxFilter.Focused)
+				{
+					//Apply filter
+					FilterValue = textBoxFilter.Text;
+					return true;
+				}
+				else
+					return base.ProcessCmdKey(ref msg, keyData);
 			}
 			else
 				return base.ProcessCmdKey(ref msg, keyData);
 		}
 
+		private void buttonClearFilter_Click(object sender, EventArgs e)
+		{
+			textBoxFilter.Text = string.Empty;
+			FilterValue = string.Empty;
+		}
 	}
 }

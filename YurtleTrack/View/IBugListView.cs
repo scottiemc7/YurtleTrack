@@ -16,7 +16,9 @@ namespace YurtleTrack.View
 		List<IBug> Bugs { get; set; }
 		int Page { get; set; }
 		int TotalBugs { get; set; }
-
 		int PageSize { get; set; }
+		string FilterBy { get; set; }
+		string FilterValue { get; set; }
+		bool IsBusy { get; set; }
 	}
 }

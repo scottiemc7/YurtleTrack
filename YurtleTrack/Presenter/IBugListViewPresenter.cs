@@ -10,5 +10,7 @@ namespace YurtleTrack.Presenter
 		void Initialize();
 		void DisplayBugDetails();
 		void DisplayProjectDetails();
+		void SuspendBindings();
+		void ResumeBindings();
 	}
 }

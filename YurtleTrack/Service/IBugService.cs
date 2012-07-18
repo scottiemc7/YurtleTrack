@@ -12,5 +12,6 @@ namespace YurtleTrack.Service
 		int GetBugCountForProject(IProject project);
 		List<IProject> GetProjects();
 		List<IBug> GetBugsForProject(IProject project, int page, int pageSize);
+		List<IBug> GetFilteredBugsForProject(IProject project, int page, int pageSize, string filterBy, string filterValue);
 	}
 }

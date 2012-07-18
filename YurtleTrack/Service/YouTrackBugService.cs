@@ -17,6 +17,7 @@ namespace YurtleTrack.Service
 		private readonly string BUGLISTURL;
 		private readonly string COUNTURL;
 		private readonly string COUNTBYPROJECTURL;
+		private readonly string BUGLISTWITHFILTERURL;
 
 		private readonly IHttpWebRequestFactory _httpFactory;
 		private readonly string _userName;
@@ -31,6 +32,7 @@ namespace YurtleTrack.Service
 			BUGLISTURL = YOUTRACKURL + "/rest/issue/byproject/{0}?after={1}&max={2}";
 			COUNTURL = YOUTRACKURL + "/rest/issue/count";
 			COUNTBYPROJECTURL = YOUTRACKURL + "/rest/issue/count?filter=project:{{{0}}}";
+			BUGLISTWITHFILTERURL = YOUTRACKURL + "/rest/issue/byproject/{0}?after={1}&max={2}&filter={3}:{4}";
 
 			_userName = userName;
 			_password = password;
@@ -105,8 +107,21 @@ namespace YurtleTrack.Service
 
 		public List<IBug> GetBugsForProject(IProject project, int page, int pageSize)
 		{
+			return GetFilteredBugsForProject(project, page, pageSize, null, null);
+		}
+
+		//Wildcard char doesn't seem to work in version 3
+		//http://youtrack.jetbrains.com/issue/JT-13494#
+		public List<IBug> GetFilteredBugsForProject(IProject project, int page, int pageSize, string filterBy, string filterValue)
+		{
+			string url;
+			if(String.IsNullOrEmpty(filterBy) || String.IsNullOrEmpty(filterValue))
+				url = String.Format(BUGLISTURL, project.ID, pageSize * page, pageSize);
+			else
+				url = String.Format(BUGLISTWITHFILTERURL, project.ID, pageSize * page, pageSize, filterBy, filterValue);
+
 			List<IBug> bugs = new List<IBug>();
-			string bugsAsXML = GETResponseFrom(String.Format(BUGLISTURL, project.ID, pageSize * page, pageSize));
+			string bugsAsXML = GETResponseFrom(url);
 
 			XmlDocument doc = new XmlDocument();
 			doc.LoadXml(bugsAsXML);
@@ -163,5 +178,8 @@ namespace YurtleTrack.Service
 
 			return Int32.Parse(matched);
 		}
+
+
+		
 	}
 }

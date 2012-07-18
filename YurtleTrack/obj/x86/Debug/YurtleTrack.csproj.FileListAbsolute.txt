@@ -9,3 +9,4 @@ D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.dll
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x86\Debug\YurtleTrack.dll
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x86\Debug\YurtleTrack.pdb
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x86\Debug\Ninject.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x86\Debug\YurtleTrack.csprojResolveAssemblyReference.cache
