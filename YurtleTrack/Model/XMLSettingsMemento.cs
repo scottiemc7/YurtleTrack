@@ -9,9 +9,9 @@ using System.Xml;
 
 namespace YurtleTrack.Model
 {
-	sealed class SettingsMemento : ISettingsMemento
+	sealed class XMLSettingsMemento : ISettingsMemento
 	{
-		public SettingsMemento(string settingsAsString)
+		public XMLSettingsMemento(string settingsAsString)
 		{
 			XmlDocument doc = new XmlDocument();
 			doc.LoadXml(String.Format("<?xml version=\"1.0\" encoding=\"utf-8\" ?><Settings>{0}</Settings>", settingsAsString));
@@ -23,7 +23,7 @@ namespace YurtleTrack.Model
 			Settings = new ReadOnlyCollection<ISetting>(lst);
 		}
 
-		public SettingsMemento(List<ISetting> settings)
+		public XMLSettingsMemento(List<ISetting> settings)
 		{
 			Settings = new ReadOnlyCollection<ISetting>(settings);
 		}

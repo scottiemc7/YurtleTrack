@@ -7,4 +7,3 @@ D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Debug\YurtleTrack.cspr
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Debug\YurtleTrack.dll
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Debug\YurtleTrack.pdb
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x64\Debug\Ninject.dll
-D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Debug\YurtleTrack.csprojResolveAssemblyReference.cache

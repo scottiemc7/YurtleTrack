@@ -45,7 +45,7 @@ namespace YurtleTrack.Model
 				encryptedSettings.Add(newSetting);
 			}//end foreach
 
-			return new SettingsMemento(encryptedSettings);
+			return new XMLSettingsMemento(encryptedSettings);
 		}
 
 		public void RestoreFromMemento(ISettingsMemento memento)

@@ -37,6 +37,10 @@ namespace YurtleTrack_Test
 
 			mockBugService.Expect(svc => svc.GetProjects()).Return(projects);
 			mockBugView.Expect(view => view.Projects).SetPropertyWithArgument(projects);
+			mockBugView.Expect(view => view.FilterBy).Return(string.Empty).Repeat.Any();
+			mockBugView.Expect(view => view.FilterValue).Return(string.Empty).Repeat.Any();
+			mockBugView.Expect(view => view.IsBusy).Return(false).Repeat.Any();
+			mockBugView.Expect(view => view.IsBusy).SetPropertyAndIgnoreArgument().Repeat.Any();
 
 			repo.ReplayAll();
 
@@ -62,7 +66,11 @@ namespace YurtleTrack_Test
 			mockBugView.Expect(view => view.SelectedProject).Return(mockProject).Repeat.Twice();
 			mockBugView.Expect(view => view.Page).Return(1);
 			mockBugView.Expect(view => view.PageSize).Return(10);
-			mockBugView.Expect(view => view.Bugs).SetPropertyWithArgument(mockBugs);		
+			mockBugView.Expect(view => view.Bugs).SetPropertyWithArgument(mockBugs);
+			mockBugView.Expect(view => view.FilterBy).Return(string.Empty).Repeat.Any();
+			mockBugView.Expect(view => view.FilterValue).Return(string.Empty).Repeat.Any();
+			mockBugView.Expect(view => view.IsBusy).Return(false).Repeat.Any();
+			mockBugView.Expect(view => view.IsBusy).SetPropertyAndIgnoreArgument().Repeat.Any();
 
 			repo.ReplayAll();
 
@@ -86,6 +94,10 @@ namespace YurtleTrack_Test
 			mockBugView.Expect(view => view.SelectedProject).Return(mockProject).Repeat.Twice();
 			mockBugService.Expect(svc => svc.GetBugCountForProject(mockProject)).Return(200);
 			mockBugView.Expect(view => view.TotalBugs).SetPropertyWithArgument(200);
+			mockBugView.Expect(view => view.FilterBy).Return(string.Empty).Repeat.Any();
+			mockBugView.Expect(view => view.FilterValue).Return(string.Empty).Repeat.Any();
+			mockBugView.Expect(view => view.IsBusy).Return(false).Repeat.Any();
+			mockBugView.Expect(view => view.IsBusy).SetPropertyAndIgnoreArgument().Repeat.Any();
 
 			repo.ReplayAll();
 

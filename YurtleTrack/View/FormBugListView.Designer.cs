@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.comboBoxProject = new System.Windows.Forms.ComboBox();
 			this.comboBoxPage = new System.Windows.Forms.ComboBox();
 			this.dataGridViewBugs = new System.Windows.Forms.DataGridView();
 			this.bindingSourceBugs = new System.Windows.Forms.BindingSource(this.components);
@@ -48,16 +48,16 @@
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceProjects)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// comboBox1
+			// comboBoxProject
 			// 
-			this.comboBox1.DisplayMember = "Name";
-			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(13, 13);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(185, 21);
-			this.comboBox1.TabIndex = 0;
-			this.comboBox1.ValueMember = "ID";
+			this.comboBoxProject.DisplayMember = "Name";
+			this.comboBoxProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxProject.FormattingEnabled = true;
+			this.comboBoxProject.Location = new System.Drawing.Point(13, 13);
+			this.comboBoxProject.Name = "comboBoxProject";
+			this.comboBoxProject.Size = new System.Drawing.Size(185, 21);
+			this.comboBoxProject.TabIndex = 0;
+			this.comboBoxProject.ValueMember = "ID";
 			// 
 			// comboBoxPage
 			// 
@@ -200,10 +200,10 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.dataGridViewBugs);
 			this.Controls.Add(this.comboBoxPage);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.comboBoxProject);
 			this.Name = "FormBugListView";
 			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "YouTrack Bug List";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewBugs)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceBugs)).EndInit();
@@ -215,7 +215,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox comboBoxProject;
 		private System.Windows.Forms.ComboBox comboBoxPage;
 		private System.Windows.Forms.DataGridView dataGridViewBugs;
 		private System.Windows.Forms.BindingSource bindingSourceProjects;

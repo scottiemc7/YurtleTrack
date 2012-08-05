@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using QuickLaunch.Properties;
 using System.Configuration;
+using System.IO;
 
 namespace QuickLaunch
 {
@@ -20,6 +21,10 @@ namespace QuickLaunch
 		{
 			InitializeComponent();
 			plg = new YurtleTrack.YurtleTrackPlugin();
+
+			string path = "D:\\Visual Studio Projects\\YurtleTrack\\QuickLaunch\\Test.mySettings";
+			if (File.Exists(path))
+				parameters = File.ReadAllText(path);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -32,7 +37,7 @@ namespace QuickLaunch
 		private void button2_Click(object sender, EventArgs e)
 		{
 			if (plg.HasOptions())
-				parameters = plg.ShowOptionsDialog(this.Handle, string.Empty);
+				parameters = plg.ShowOptionsDialog(this.Handle, parameters);
 		}
 	}
 }

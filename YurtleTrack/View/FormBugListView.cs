@@ -18,22 +18,26 @@ namespace YurtleTrack.View
 	{
 		private readonly IBugListViewPresenter _presenter;
 		private readonly ISingleBugViewPresenter _singleBugPresenter;
-		public FormBugListView(IBugService svc, ISingleBugViewPresenter sbPres)
+		private readonly ISettingsOriginator _viewSettings;
+		private readonly DataGridViewLinkColumn _linkCol;
+		public FormBugListView(IBugService svc, ISingleBugViewPresenter sbPres, ISettingsOriginator viewSettings)
 		{
 			InitializeComponent();
 
 			_presenter = new BugListViewPresenter(this, svc);
 			_singleBugPresenter = sbPres;
+			_viewSettings = viewSettings;
 			SelectedBugs = new ObservableCollection<IBug>();
 			Projects = new List<IProject>();
 
-			comboBox1.DataSource = bindingSourceProjects;			
+			comboBoxProject.DataSource = bindingSourceProjects;			
 			
 			//Set up grid
 			dataGridViewBugs.Columns.Add(new DataGridViewCheckBoxColumn() { ReadOnly = false, AutoSizeMode = DataGridViewAutoSizeColumnMode.None, Resizable = DataGridViewTriState.False, Width = 20 });
 			dataGridViewBugs.Columns.Add(new DataGridViewTextBoxColumn() { DataPropertyName = "ID", ReadOnly = true, Resizable = DataGridViewTriState.True });
 			dataGridViewBugs.Columns.Add(new DataGridViewTextBoxColumn() { DataPropertyName = "Description", ReadOnly = true, Resizable = DataGridViewTriState.True, AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-			dataGridViewBugs.Columns.Add(new DataGridViewLinkColumn() { LinkBehavior = LinkBehavior.NeverUnderline, UseColumnTextForLinkValue = true, Text = "view", ReadOnly = true, Resizable = DataGridViewTriState.False, Width = 50, DefaultCellStyle = new DataGridViewCellStyle(dataGridViewBugs.DefaultCellStyle) { Alignment = DataGridViewContentAlignment.MiddleCenter } });
+			_linkCol = new DataGridViewLinkColumn() { LinkBehavior = LinkBehavior.NeverUnderline, UseColumnTextForLinkValue = true, Text = "view", ReadOnly = true, Resizable = DataGridViewTriState.False, Width = 50, DefaultCellStyle = new DataGridViewCellStyle(dataGridViewBugs.DefaultCellStyle) { Alignment = DataGridViewContentAlignment.MiddleCenter } };
+			dataGridViewBugs.Columns.Add(_linkCol);
 
 			dataGridViewBugs.CellContentClick += new DataGridViewCellEventHandler(dataGridViewBugs_CellContentClick);
 			bindingSourceProjects.CurrentChanged += (s, ea) => { if (!bindingSourceProjects.IsBindingSuspended) SelectedProject = bindingSourceProjects.Current as IProject; };
@@ -76,7 +80,7 @@ namespace YurtleTrack.View
 
 		void dataGridViewBugs_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if (e.ColumnIndex == 2)
+			if (e.ColumnIndex == _linkCol.Index)
 				_singleBugPresenter.ShowBug((IBug)bindingSourceBugs.Current);
 			else if (e.ColumnIndex == 0)//Our check box
 			{
@@ -89,9 +93,50 @@ namespace YurtleTrack.View
 
 		protected override void OnLoad(EventArgs e)
 		{
-			_presenter.Initialize();
+			try
+			{
+				_presenter.Initialize();
 
+				//Load some view settings			
+				ISetting locationX = _viewSettings.Get("LocationX");
+				ISetting locationY = _viewSettings.Get("LocationY");
+				ISetting sizeWidth = _viewSettings.Get("SizeWidth");
+				ISetting sizeHeight = _viewSettings.Get("SizeHeight");
+				ISetting projectID = _viewSettings.Get("LastProjectID");
+
+				if (locationX != null && locationY != null)
+					this.DesktopLocation = new Point(Convert.ToInt32(locationX.Value), Convert.ToInt32(locationY.Value));
+				else
+					this.StartPosition = FormStartPosition.CenterParent;
+
+				if (sizeWidth != null && sizeHeight != null)
+					this.Size = new Size(Convert.ToInt32(sizeWidth.Value), Convert.ToInt32(sizeHeight.Value));
+
+				if (projectID != null)
+				{
+					IProject proj = Projects.FirstOrDefault(p => p.ID == projectID.Value);
+					if (proj != null)
+						bindingSourceProjects.Position = bindingSourceProjects.IndexOf(proj);
+				}//end if
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				throw;
+			}//end try
+			
 			base.OnLoad(e);			
+		}
+
+		protected override void OnClosing(CancelEventArgs e)
+		{
+			_viewSettings.Set(new Setting() { Name = "LocationX", Value = this.Location.X.ToString() });
+			_viewSettings.Set(new Setting() { Name = "LocationY", Value = this.Location.Y.ToString() });
+			_viewSettings.Set(new Setting() { Name = "SizeWidth", Value = this.Size.Width.ToString() });
+			_viewSettings.Set(new Setting() { Name = "SizeHeight", Value = this.Size.Height.ToString() });
+			_viewSettings.Set(new Setting() { Name = "LastProjectID", Value = ((IProject)bindingSourceProjects.Current).ID });
+
+			base.OnClosing(e);
 		}
 
 		private IProject _selectedProject;

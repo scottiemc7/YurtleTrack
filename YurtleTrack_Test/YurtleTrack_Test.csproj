@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BugListViewPresenter_Test.cs" />
+    <Compile Include="HKCURegistrySettingsService_Test.cs" />
     <Compile Include="OptionsPresenter_Test.cs" />
     <Compile Include="SettingsOriginatorAndMemento_Test.cs" />
     <Compile Include="SingleBugViewPresenter_Test.cs" />

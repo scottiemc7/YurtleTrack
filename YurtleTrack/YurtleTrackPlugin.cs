@@ -36,7 +36,8 @@ namespace YurtleTrack
 			_kernel.Bind<ISingleBugViewPresenter>().To<SingleBugViewPresenter>();
 			_kernel.Bind<ISingleBugView>().To<YouTrackWebSingleBugView>();
 			_kernel.Bind<ISettingsOriginator>().To<SettingsOriginator>();
-			_kernel.Bind<ISettingsMemento>().To<SettingsMemento>();
+			_kernel.Bind<ISettingsMemento>().To<XMLSettingsMemento>();
+			_kernel.Bind<ISettingsService>().ToConstant<HKCURegistrySettingsService>(new HKCURegistrySettingsService("YurtleTrack\\UserSettings"));
 
 			_kernel.Bind<FormBugListView>().To<FormBugListView>();
 			_kernel.Bind<FormOptions>().To<FormOptions>();
@@ -75,8 +76,11 @@ namespace YurtleTrack
 
 				ISettingsOriginator originator = RestoreFromParameters(parameters);
 				_kernel.Rebind<IBugService>().ToConstructor<YouTrackBugService>(svc => new YouTrackBugService(svc.Inject<IHttpWebRequestFactory>(), originator.Get(YurtleTrackPlugin.URLOPTIONNAME).Value, originator.Get(YurtleTrackPlugin.USEROPTIONNAME).Value, originator.Get(YurtleTrackPlugin.PASSWORDOPTIONNAME).Value));
+				_kernel.Rebind<ISettingsOriginator>().ToConstant(originator);
 
-				FormBugListView vw = _kernel.Get<FormBugListView>();
+				ISettingsOriginator viewSettingsOriginator = RestoreFromCurrentUserSettings();
+				FormBugListView vw = _kernel.Get<FormBugListView>(new ConstructorArgument("viewSettings", viewSettingsOriginator));
+				//FormBugListView vw = _kernel.Get<FormBugListView>();
 				if (vw.ShowDialog() != DialogResult.OK)
 					return originalMessage;
 
@@ -97,7 +101,7 @@ namespace YurtleTrack
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.ToString());
+				//MessageBox.Show(ex.ToString());
 				throw;
 			}
 			finally
@@ -137,18 +141,29 @@ namespace YurtleTrack
 			//Restore originator from memento
 			ISettingsOriginator originator = _kernel.Get<ISettingsOriginator>(new ConstructorArgument("memento", memento));
 
-			//REbind
-			_kernel.Rebind<ISettingsOriginator>().ToConstant(originator);
+			return originator;
+		}
+
+		private ISettingsOriginator RestoreFromCurrentUserSettings()
+		{
+			//Grab settings as string
+			ISettingsService svc = _kernel.Get<ISettingsService>();			
+
+			//Restore our saved memento
+			ISettingsMemento memento = _kernel.Get<ISettingsMemento>(new ConstructorArgument("settingsAsString", svc.GetAllSettingsAsXML()));
+
+			//Restore originator from memento
+			ISettingsOriginator originator = _kernel.Get<ISettingsOriginator>(new ConstructorArgument("memento", memento));
 
 			return originator;
 		}
 
-        public string ShowOptionsDialog( IntPtr hParentWnd, string parameters )
+        public string ShowOptionsDialog(IntPtr hParentWnd, string parameters)
         {
 			ISettingsOriginator originator = RestoreFromParameters(parameters);
 
 			//Show the options dialog
-			FormOptions frm = _kernel.Get<FormOptions>();
+			FormOptions frm = _kernel.Get<FormOptions>(new ConstructorArgument("originator", originator));
 			NativeWindow nativeWindow = new NativeWindow();
 			try
 			{
