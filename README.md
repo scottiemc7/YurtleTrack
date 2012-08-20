@@ -1,4 +1,5 @@
 #YurtleTrack
+<script type="text/javascript" src="http://www.ohloh.net/p/604594/widgets/project_users.js"></script>
 A [TortoiseSVN](http://tortoisesvn.net/ "TortoiseSVN") issue tracker plug-in for integration with [JetBrains YouTrack 3.0](http://www.jetbrains.com/youtrack/ "YouTrack")  
 
     Scott McClure
