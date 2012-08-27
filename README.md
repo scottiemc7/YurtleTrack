@@ -12,7 +12,7 @@ Two installers are included in the `Installers` directory, one compatible with t
 	
 ## SETUP:
 
-*For instructions on how to set up the plugin per project, instead of per user see [Integration with Bug Tracking Systems / Issue Trackers](http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-bugtracker.html/ "TortoiseSVN"). The GUID for both the x86 and x64 versions of the plugin is:* **{0044f6c0-b999-11e1-afa6-0800200c9a66}**  
+*For instructions on how to set up the plugin per project, instead of per user see [Integration with Bug Tracking Systems / Issue Trackers](http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-bugtracker.html "TortoiseSVN"). The GUID for both the x86 and x64 versions of the plugin is:* **{0044f6c0-b999-11e1-afa6-0800200c9a66}**  
    
    
 *    `TortiseSVN->Settings->Issue Tracker Integration->Add`  
