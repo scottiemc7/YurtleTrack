@@ -20,5 +20,10 @@ namespace YurtleTrack.View
 		string FilterBy { get; set; }
 		string FilterValue { get; set; }
 		bool IsBusy { get; set; }
+		bool ApplyCommand { get; set; }
+		ICommand CommandToApply { get; set; }
+
+		//List<ICommand> AvailableCommands { get; set; }
+		//List<ICommand> SelectedCommands { get; set; }
 	}
 }

@@ -36,6 +36,10 @@ namespace YurtleTrack.Service
 			_response.Close();
 		}
 
+		public HttpStatusCode StatusCode
+		{
+			get { return _response.StatusCode; }
+		}
 
 		public WebHeaderCollection Headers
 		{

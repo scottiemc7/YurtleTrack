@@ -5,13 +5,14 @@ using System.Text;
 using YurtleTrack.Model;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Ninject;
 
 namespace YurtleTrack.View
 {
 	class YouTrackWebSingleBugView : ISingleBugView
 	{
 		private readonly ISettingsOriginator _settings;
-		public YouTrackWebSingleBugView(ISettingsOriginator settings)
+		public YouTrackWebSingleBugView([Named("Parameters")]ISettingsOriginator settings)
 		{
 			_settings = settings;
 		}

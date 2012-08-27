@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <!-- Set up our variables-->
+	
     <?if $(env.Platform) = x64 ?>
     <?define ProductName = "YurtleTrack (x64)" ?>
     <?define Win64 = "yes" ?>
@@ -10,13 +11,12 @@
     <?define Win64 = "no" ?>
     <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
     <?endif ?>
-    <Product Id="F1455DD1-7A9D-40D2-851B-C83A48D664AC" Name="$(var.ProductName)" Language="1033" Version="1.0.0.0" Manufacturer="WixEdit" UpgradeCode="C93D631D-D46A-42F4-88C9-440A5CA3560A">
+    <Product Id="F1455DD1-7A9D-40D2-851B-C83A48D664AC" Name="$(var.ProductName)" Language="1033" Version="$(var.Version)" Manufacturer="https://github.com/scottiemc7/YurtleTrack" UpgradeCode="C93D631D-D46A-42F4-88C9-440A5CA3560A">
         <Package Description="Test file in a Product" Comments="Simple test" InstallerVersion="200" Compressed="yes" Platform="$(env.Platform)" />
         <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="$(var.PlatformProgramFilesFolder)">
-                <Directory Id="INSTALLLOCATION" Name="SRMC">
-                    <Directory Id="INSTALLDIR" Name="YurtleTrack" />
+                <Directory Id="INSTALLDIR" Name="YurtleTrack">
                 </Directory>
             </Directory>
         </Directory>

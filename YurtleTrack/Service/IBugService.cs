@@ -13,5 +13,6 @@ namespace YurtleTrack.Service
 		List<IProject> GetProjects();
 		List<IBug> GetBugsForProject(IProject project, int page, int pageSize);
 		List<IBug> GetFilteredBugsForProject(IProject project, int page, int pageSize, string filterBy, string filterValue);
+		void ApplyCommandsToBugs(List<ICommand> commands, List<IBug> bugs);
 	}
 }

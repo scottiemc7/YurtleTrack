@@ -1,15 +1,21 @@
 #YurtleTrack
-<script type="text/javascript" src="http://www.ohloh.net/p/604594/widgets/project_users.js"></script>
-A [TortoiseSVN](http://tortoisesvn.net/ "TortoiseSVN") issue tracker plug-in for integration with [JetBrains YouTrack 3.0](http://www.jetbrains.com/youtrack/ "YouTrack")  
+A [TortoiseSVN](http://tortoisesvn.net/ "TortoiseSVN") issue tracker plug-in for integration with [JetBrains YouTrack 4.0](http://www.jetbrains.com/youtrack/ "YouTrack")  
 
     Scott McClure
     scottie_DOT_mcclure@gmail.com
 
 ## INSTALLATION:
-Two installers are included in the `Installers` directory, one compatible with the x86 version and one compatible with the x64 version of TortoiseSVN.
+Two installers are included in the `Installers` directory, one compatible with the *x86* version and one compatible with the *x64* version of TortiseSVN.
 
+    System Requirements:
+	    .NET Framework 4.0
+	
 ## SETUP:
-*    `TortoiseSVN->Settings->Issue Tracker Integration->Add`  
+
+*For instructions on how to set up the plugin per project, instead of per user see [Integration with Bug Tracking Systems / Issue Trackers](http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-bugtracker.html/ "TortoiseSVN"). The GUID for both the x86 and x64 versions of the plugin is:* **{0044f6c0-b999-11e1-afa6-0800200c9a66}**  
+   
+   
+*    `TortiseSVN->Settings->Issue Tracker Integration->Add`  
 ![Settings 1 png](https://github.com/scottiemc7/YurtleTrack/raw/master/README_img/Settings1.png "Issue Tracker Integration->Add")
     *    Select YurtleTrack
     *    Set the `Working Copy Path` to the directory under which you would like to have this plug-in be active

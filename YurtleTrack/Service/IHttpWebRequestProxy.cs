@@ -12,7 +12,7 @@ namespace YurtleTrack.Service
 		string ContentType { get; set; }
 		long ContentLength { get; set; }
 		CookieContainer CookieContainer { get; set; }
-		WebHeaderCollection Headers { get;}
+		WebHeaderCollection Headers { get; }
 
 		Stream GetRequestStream();
 		IHttpWebResponseProxy GetResponse();

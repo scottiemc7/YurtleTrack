@@ -5,6 +5,7 @@ using System.Text;
 using YurtleTrack.View;
 using YurtleTrack.Model;
 using System.Security.Cryptography;
+using Ninject;
 
 namespace YurtleTrack.Presenter
 {
@@ -13,7 +14,7 @@ namespace YurtleTrack.Presenter
 		private readonly IOptionsView _view;
 		private readonly ISettingsOriginator _settings;
 		private ISettingsMemento _memento;
-		public OptionsPresenter(IOptionsView view, ISettingsOriginator settings)
+		public OptionsPresenter(IOptionsView view, [Named("Parameters")]ISettingsOriginator settings)
 		{
 			_view = view;
 			_settings = settings;

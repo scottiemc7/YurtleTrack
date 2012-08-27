@@ -18,3 +18,10 @@ D:\DropBox\YurtleTrack\YurtleTrack_Test\obj\Debug\YurtleTrack_Test.pdb
 D:\DropBox\YurtleTrack\YurtleTrack_Test\bin\Debug\YurtleTrack.dll
 D:\DropBox\YurtleTrack\YurtleTrack_Test\bin\Debug\YurtleTrack.pdb
 D:\DropBox\YurtleTrack\YurtleTrack_Test\bin\Debug\Ninject.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Debug\YurtleTrack_Test.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Debug\YurtleTrack_Test.pdb
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Debug\Rhino.Mocks.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Debug\xunit.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Debug\YurtleTrack.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Debug\Ninject.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Debug\YurtleTrack.pdb

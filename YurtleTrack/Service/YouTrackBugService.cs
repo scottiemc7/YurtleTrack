@@ -18,6 +18,8 @@ namespace YurtleTrack.Service
 		private readonly string COUNTURL;
 		private readonly string COUNTBYPROJECTURL;
 		private readonly string BUGLISTWITHFILTERURL;
+		private readonly string APPLYCOMMANDURL;
+		private readonly string APPLYCOMMANDBODY;
 
 		private readonly IHttpWebRequestFactory _httpFactory;
 		private readonly string _userName;
@@ -33,6 +35,8 @@ namespace YurtleTrack.Service
 			COUNTURL = YOUTRACKURL + "/rest/issue/count";
 			COUNTBYPROJECTURL = YOUTRACKURL + "/rest/issue/count?filter=project:{{{0}}}";
 			BUGLISTWITHFILTERURL = YOUTRACKURL + "/rest/issue/byproject/{0}?after={1}&max={2}&filter={3}:{4}";
+			APPLYCOMMANDURL = YOUTRACKURL + "/rest/issue/{0}/execute";
+			APPLYCOMMANDBODY = "command={0}&disableNotifications={1}";
 
 			_userName = userName;
 			_password = password;
@@ -82,6 +86,25 @@ namespace YurtleTrack.Service
 				{
 					return sr.ReadToEnd();
 				}//end using
+			}//end using
+		}
+
+		private bool POSTTo(string url, string body)
+		{
+			IHttpWebRequestProxy req = _httpFactory.Create(url);
+			req.Method = "POST";
+			req.Headers["Cookie"] = AuthCookie;
+			req.ContentType = "application/x-www-form-urlencoded";
+			using (Stream reqStream = req.GetRequestStream())
+			using (StreamWriter strWriter = new StreamWriter(reqStream))
+			{
+				strWriter.Write(body);
+			}//end using
+
+			//Grab response
+			using (IHttpWebResponseProxy resp = req.GetResponse())
+			{
+				return resp.StatusCode == System.Net.HttpStatusCode.OK;
 			}//end using
 		}
 
@@ -172,14 +195,29 @@ namespace YurtleTrack.Service
 			string matched = "-1";
 			try
 			{
-				matched = Regex.Match(response, "^callback\\(\"(?<num>-*\\d+)\"\\)$").Groups["num"].Value;
+				Match match = Regex.Match(response, "^callback\\(\"(?<num>-*\\d+)\"\\)$");
+				if(match.Success)
+					matched = match.Groups["num"].Value;
 			}
 			catch { }
 
 			return Int32.Parse(matched);
 		}
 
+		public void ApplyCommandsToBugs(List<ICommand> commands, List<IBug> bugs)
+		{
+			foreach (ICommand cmd in commands)
+			{
+				if (String.IsNullOrEmpty(cmd.Command))
+					continue;
 
-		
+				foreach(IBug bug in bugs)
+				{
+					string url = String.Format(APPLYCOMMANDURL, bug.ID);
+					string body = String.Format(APPLYCOMMANDBODY, cmd.Command, cmd.DisableNotifications);
+					POSTTo(url, body);
+				}//end foreach
+			}//end foreach
+		}
 	}
 }

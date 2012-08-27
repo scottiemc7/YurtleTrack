@@ -39,5 +39,10 @@ namespace QuickLaunch
 			if (plg.HasOptions())
 				parameters = plg.ShowOptionsDialog(this.Handle, parameters);
 		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			plg.OnCommitFinished(this.Handle, null, null, null, 1);
+		}
 	}
 }

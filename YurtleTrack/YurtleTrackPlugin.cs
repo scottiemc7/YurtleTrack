@@ -35,9 +35,9 @@ namespace YurtleTrack
 			_kernel.Bind<IBugService>().To<YouTrackBugService>();			
 			_kernel.Bind<ISingleBugViewPresenter>().To<SingleBugViewPresenter>();
 			_kernel.Bind<ISingleBugView>().To<YouTrackWebSingleBugView>();
-			_kernel.Bind<ISettingsOriginator>().To<SettingsOriginator>();
+			_kernel.Bind<ISettingsOriginator>().ToConstructor<SettingsOriginator>(ctor => new SettingsOriginator());
 			_kernel.Bind<ISettingsMemento>().To<XMLSettingsMemento>();
-			_kernel.Bind<ISettingsService>().ToConstant<HKCURegistrySettingsService>(new HKCURegistrySettingsService("YurtleTrack\\UserSettings"));
+			_kernel.Bind<ISettingsService>().ToConstant<HKCURegistrySettingsService>(new HKCURegistrySettingsService("Software\\YurtleTrack\\UserSettings"));
 
 			_kernel.Bind<FormBugListView>().To<FormBugListView>();
 			_kernel.Bind<FormOptions>().To<FormOptions>();
@@ -62,10 +62,11 @@ namespace YurtleTrack
             return GetCommitMessage2( hParentWnd, parameters, "", commonRoot, pathList, originalMessage, "", out dummystring, out revPropNames, out revPropValues );
         }
 
+		private List<IBug> _selectedBugs = new List<IBug>();
+		private List<ICommand> _commandsToProcess = new List<ICommand>();
         public string GetCommitMessage2( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList,
                                string originalMessage, string bugID, out string bugIDOut, out string[] revPropNames, out string[] revPropValues )
         {
-
 			try
 			{
 				Cursor.Current = Cursors.AppStarting;
@@ -73,15 +74,24 @@ namespace YurtleTrack
 				revPropNames = new string[0];
 				revPropValues = new string[0];
 				bugIDOut = string.Empty;
+				_selectedBugs = new List<IBug>();
 
 				ISettingsOriginator originator = RestoreFromParameters(parameters);
 				_kernel.Rebind<IBugService>().ToConstructor<YouTrackBugService>(svc => new YouTrackBugService(svc.Inject<IHttpWebRequestFactory>(), originator.Get(YurtleTrackPlugin.URLOPTIONNAME).Value, originator.Get(YurtleTrackPlugin.USEROPTIONNAME).Value, originator.Get(YurtleTrackPlugin.PASSWORDOPTIONNAME).Value));
-				_kernel.Rebind<ISettingsOriginator>().ToConstant(originator);
+
+				_kernel.Rebind<ISettingsOriginator>().ToConstant(originator).Named("Parameters");
 
 				ISettingsOriginator viewSettingsOriginator = RestoreFromCurrentUserSettings();
 				FormBugListView vw = _kernel.Get<FormBugListView>(new ConstructorArgument("viewSettings", viewSettingsOriginator));
-				//FormBugListView vw = _kernel.Get<FormBugListView>();
-				if (vw.ShowDialog() != DialogResult.OK)
+
+				_kernel.Rebind<ISettingsOriginator>().ToConstant(viewSettingsOriginator).Named("ViewSettings");
+				DialogResult ret = vw.ShowDialog();
+
+				//Save view settings				
+				SaveCurrentUserSettings(viewSettingsOriginator);
+				
+
+				if (ret != DialogResult.OK)
 					return originalMessage;
 
 				StringBuilder sb = new StringBuilder(originalMessage);
@@ -95,11 +105,16 @@ namespace YurtleTrack
 						sb.AppendFormat("Fixed #{0} : {1}", bug.ID, bug.Summary);
 						sb.AppendLine();
 					}//end foreach
+
+					_selectedBugs.AddRange(vw.SelectedBugs);
+
+					if(vw.ApplyCommand)
+						_commandsToProcess.Add(vw.CommandToApply);
 				}//end if
 
 				return sb.ToString();
 			}
-			catch (Exception ex)
+			catch// (Exception ex)
 			{
 				//MessageBox.Show(ex.ToString());
 				throw;
@@ -112,18 +127,28 @@ namespace YurtleTrack
 
         public string CheckCommit( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList, string commitMessage )
         {
+			//MessageBox.Show(string.Format("CommonURL: {0} \r\nCommonRoot: {1} \r\nMessage: {2}", commonURL, commonRoot, commitMessage));
             return null;
         }
 
         public string OnCommitFinished( IntPtr hParentWnd, string commonRoot, string[] pathList, string logMessage, int revision )
         {
-            // we now could use the selectedTickets member to find out which tickets
-            // were assigned to this commit.
-			//CommitFinishedForm form = new CommitFinishedForm( selectedTickets );
-			//if ( form.ShowDialog( ) != DialogResult.OK )
-			//    return "";
-            // just for testing, we return an error string
-           // return "an error happened while closing the issue";
+			if (_selectedBugs.Count > 0  && _commandsToProcess.Count > 0)
+			{
+				try
+				{
+					Cursor.Current = Cursors.AppStarting;
+					IBugService svc = _kernel.Get<IBugService>();
+					svc.ApplyCommandsToBugs(_commandsToProcess, _selectedBugs);
+				}
+				finally
+				{
+					Cursor.Current = Cursors.WaitCursor;
+				}//end try
+
+				_selectedBugs.Clear();
+				_commandsToProcess.Clear();
+			}//end if	
 
 			return null;
         }
@@ -139,7 +164,8 @@ namespace YurtleTrack
 			ISettingsMemento memento = _kernel.Get<ISettingsMemento>(new ConstructorArgument("settingsAsString", parameters));
 
 			//Restore originator from memento
-			ISettingsOriginator originator = _kernel.Get<ISettingsOriginator>(new ConstructorArgument("memento", memento));
+			ISettingsOriginator originator = SettingsOriginatorFactory.Instance.CreateOriginator();
+			originator.RestoreFromMemento(memento);
 
 			return originator;
 		}
@@ -148,14 +174,24 @@ namespace YurtleTrack
 		{
 			//Grab settings as string
 			ISettingsService svc = _kernel.Get<ISettingsService>();			
-
+			
 			//Restore our saved memento
 			ISettingsMemento memento = _kernel.Get<ISettingsMemento>(new ConstructorArgument("settingsAsString", svc.GetAllSettingsAsXML()));
 
 			//Restore originator from memento
-			ISettingsOriginator originator = _kernel.Get<ISettingsOriginator>(new ConstructorArgument("memento", memento));
+			ISettingsOriginator originator = SettingsOriginatorFactory.Instance.CreateOriginator();
+			originator.RestoreFromMemento(memento);
 
 			return originator;
+		}
+
+		private void SaveCurrentUserSettings(ISettingsOriginator orig)
+		{
+			//Grab settings as string
+			ISettingsService svc = _kernel.Get<ISettingsService>();
+
+			foreach (ISetting sett in orig.GetMemento().Settings)
+				svc.Set(sett);
 		}
 
         public string ShowOptionsDialog(IntPtr hParentWnd, string parameters)

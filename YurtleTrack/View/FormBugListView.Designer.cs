@@ -43,6 +43,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBoxFilter = new System.Windows.Forms.TextBox();
 			this.buttonClearFilter = new System.Windows.Forms.Button();
+			this.textBoxCommand = new System.Windows.Forms.TextBox();
+			this.checkBoxApplyCommand = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewBugs)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceBugs)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceProjects)).BeginInit();
@@ -86,7 +88,7 @@
 			this.dataGridViewBugs.RowHeadersVisible = false;
 			this.dataGridViewBugs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewBugs.ShowEditingIcon = false;
-			this.dataGridViewBugs.Size = new System.Drawing.Size(517, 254);
+			this.dataGridViewBugs.Size = new System.Drawing.Size(517, 226);
 			this.dataGridViewBugs.TabIndex = 0;
 			// 
 			// label1
@@ -181,6 +183,25 @@
 			this.buttonClearFilter.UseVisualStyleBackColor = true;
 			this.buttonClearFilter.Click += new System.EventHandler(this.buttonClearFilter_Click);
 			// 
+			// textBoxCommand
+			// 
+			this.textBoxCommand.AcceptsReturn = true;
+			this.textBoxCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxCommand.Location = new System.Drawing.Point(124, 275);
+			this.textBoxCommand.Name = "textBoxCommand";
+			this.textBoxCommand.Size = new System.Drawing.Size(222, 20);
+			this.textBoxCommand.TabIndex = 13;
+			// 
+			// checkBoxApplyCommand
+			// 
+			this.checkBoxApplyCommand.AutoSize = true;
+			this.checkBoxApplyCommand.Location = new System.Drawing.Point(13, 277);
+			this.checkBoxApplyCommand.Name = "checkBoxApplyCommand";
+			this.checkBoxApplyCommand.Size = new System.Drawing.Size(105, 17);
+			this.checkBoxApplyCommand.TabIndex = 14;
+			this.checkBoxApplyCommand.Text = "Apply Command:";
+			this.checkBoxApplyCommand.UseVisualStyleBackColor = true;
+			// 
 			// FormBugListView
 			// 
 			this.AcceptButton = this.buttonOK;
@@ -189,6 +210,8 @@
 			this.CancelButton = this.buttonCancel;
 			this.ClientSize = new System.Drawing.Size(542, 334);
 			this.ControlBox = false;
+			this.Controls.Add(this.checkBoxApplyCommand);
+			this.Controls.Add(this.textBoxCommand);
 			this.Controls.Add(this.buttonClearFilter);
 			this.Controls.Add(this.textBoxFilter);
 			this.Controls.Add(this.label3);
@@ -229,5 +252,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox textBoxFilter;
 		private System.Windows.Forms.Button buttonClearFilter;
+		private System.Windows.Forms.TextBox textBoxCommand;
+		private System.Windows.Forms.CheckBox checkBoxApplyCommand;
 	}
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using YurtleTrack.Model;
 using YurtleTrack.Presenter;
+using Ninject;
 
 namespace YurtleTrack.View
 {
@@ -18,7 +19,7 @@ namespace YurtleTrack.View
 		{
 			InitializeComponent();
 		}
-		public FormOptions(ISettingsOriginator originator) : this()
+		public FormOptions([Named("Parameters")]ISettingsOriginator originator) : this()
 		{
 			_presenter = new OptionsPresenter(this, originator);
 		}

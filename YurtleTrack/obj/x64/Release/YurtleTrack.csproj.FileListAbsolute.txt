@@ -7,3 +7,4 @@ D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Release\YurtleTrack.cs
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Release\YurtleTrack.dll
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Release\YurtleTrack.pdb
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\bin\x64\Release\Ninject.dll
+D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\x64\Release\YurtleTrack.csprojResolveAssemblyReference.cache

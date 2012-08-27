@@ -11,6 +11,8 @@ namespace YurtleTrack.Service
 	{
 		CookieCollection Cookies { get; set; }
 		WebHeaderCollection Headers { get; }
+		HttpStatusCode StatusCode { get; }
+
 		Stream GetResponseStream();
 	}
 }
