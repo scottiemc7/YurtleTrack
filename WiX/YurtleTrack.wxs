@@ -22,7 +22,7 @@
         </Directory>
         <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
             <Component Directory="INSTALLDIR" Win64="$(var.Win64)" Guid="2783E6AE-B5A3-4214-9DFB-658D29DAFB1F" Id="YurtleTrackDLL">
-                <File Source="..\bin\$(env.Platform)\YurtleTrack.dll" Id="YurtleTrack.dll" />
+                <File Source="..\bin\YurtleTrack.dll" Id="YurtleTrack.dll" />
             </Component>
             <Component Id="RegistrySettings" Guid="CAC846E2-AD47-4E38-85FB-2DA549CA1DE7" Win64="$(var.Win64)" Directory="INSTALLDIR">
                 <RegistryKey Root="HKLM" Key="Software\Classes\YurtleTrack.YurtleTrackPlugin" Action="createAndRemoveOnUninstall" />
@@ -46,7 +46,7 @@
                 <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{0044F6C0-B999-11E1-AFA6-0800200C9A66}\Implemented Categories\{3494FA92-B139-4730-9591-01135D5E7831}" Action="createAndRemoveOnUninstall" />
             </Component>
             <Component Guid="79473675-53C3-4314-8777-854710D610D4" Id="NinjectDLL" Directory="INSTALLDIR" Win64="$(var.Win64)">
-                <File Name="Ninject.dll" Source="..\bin\$(env.Platform)\Ninject.dll" />
+                <File Name="Ninject.dll" Source="..\bin\Ninject.dll" />
             </Component>
         </Feature>
         <UI Id="WixUI_Minimal">

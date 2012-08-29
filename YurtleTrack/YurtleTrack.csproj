@@ -139,8 +139,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Debug goto :END
-copy "$(TargetPath)" "$(SolutionDir)bin\$(PlatformName)\$(TargetFileName)" /y
-copy "$(ProjectDir)Dependencies\*.dll" "$(SolutionDir)bin\$(PlatformName)\" /y
+copy "$(TargetPath)" "$(SolutionDir)bin\$(TargetFileName)" /y
+copy "$(ProjectDir)Dependencies\*.dll" "$(SolutionDir)bin\" /y
 cd "$(SolutionDir)WiX"
 compile.bat 1.4.0.0 $(PlatformName)
 :END</PostBuildEvent>
