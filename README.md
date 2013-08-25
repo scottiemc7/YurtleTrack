@@ -5,10 +5,11 @@ A [TortoiseSVN](http://tortoisesvn.net/ "TortoiseSVN") issue tracker plug-in for
     scottie_DOT_mcclure@gmail.com
 
 ## INSTALLATION:
-Two installers are included in the `Installers` directory, one compatible with the *x86* version and one compatible with the *x64* version of TortiseSVN.
 
-    System Requirements:
-	    .NET Framework 4.0
+    System Requirements:  
+    .NET Framework 4.5 - http://www.microsoft.com/en-us/download/details.aspx?id=30653
+    
+Two installers are included in the `Installers` directory, one compatible with the *x86* version and one compatible with the *x64* version of TortiseSVN.
 	
 ## SETUP:
 
