@@ -18,3 +18,12 @@ D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.pdb
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.csprojResolveAssemblyReference.cache
 D:\DropBox\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.csprojResolveAssemblyReference.cache
 D:\Dropbox\YurtleTrack\YurtleTrack\bin\Debug\Ninject.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\bin\Debug\YurtleTrack.pdb
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\bin\Debug\Ninject.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.Properties.Resources.resources
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.View.FormBugListView.resources
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.View.FormOptions.resources
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.csproj.GenerateResource.Cache
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack\obj\Debug\YurtleTrack.pdb

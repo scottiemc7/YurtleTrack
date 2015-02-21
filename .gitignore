@@ -62,6 +62,7 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
+obj/
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
@@ -163,4 +164,8 @@ pip-log.txt
 .DS_Store
 
 # Other Stuff
-*.mySettings
+*.mysettings
+
+# Wix
+*.wixpdb
+*.wixobj

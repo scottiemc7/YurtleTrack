@@ -14,3 +14,12 @@ D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\Rhino.Moc
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\xunit.dll
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\YurtleTrack.dll
 D:\Visual Studio Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\Ninject.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\YurtleTrack_Test.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\YurtleTrack_Test.pdb
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\Rhino.Mocks.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\xunit.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\YurtleTrack.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\bin\x86\Release\Ninject.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\obj\Release\YurtleTrack_Test.csprojResolveAssemblyReference.cache
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\obj\Release\YurtleTrack_Test.dll
+C:\My Documents\Projects\YurtleTrack\YurtleTrack_Test\obj\Release\YurtleTrack_Test.pdb

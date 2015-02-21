@@ -22,7 +22,7 @@ namespace QuickLaunch
 			InitializeComponent();
 			plg = new YurtleTrack.YurtleTrackPlugin();
 
-			string path = "D:\\Visual Studio Projects\\YurtleTrack\\QuickLaunch\\Test.mySettings";
+            string path = String.Format("{0}\\{1}", Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Test.mysettings");
 			if (File.Exists(path))
 				parameters = File.ReadAllText(path);
 		}

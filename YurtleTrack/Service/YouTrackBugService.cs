@@ -28,7 +28,7 @@ namespace YurtleTrack.Service
 		{
 			_httpFactory = httpFactory;
 
-			YOUTRACKURL = youtrackURL;
+			YOUTRACKURL = youtrackURL.TrimEnd('\\').TrimEnd('/');
 			LOGINURL = YOUTRACKURL + "/rest/user/login";
 			PROJECTLISTURL = YOUTRACKURL + "/rest/project/all";
 			BUGLISTURL = YOUTRACKURL + "/rest/issue/byproject/{0}?after={1}&max={2}";
