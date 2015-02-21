@@ -1,5 +1,5 @@
 #YurtleTrack
-A [TortoiseSVN](http://tortoisesvn.net/ "TortoiseSVN") issue tracker plug-in for integration with [JetBrains YouTrack 4.0](http://www.jetbrains.com/youtrack/ "YouTrack")  
+A [TortoiseSVN](http://tortoisesvn.net/ "TortoiseSVN") issue tracker plug-in for integration with [JetBrains YouTrack 6.0](http://www.jetbrains.com/youtrack/ "YouTrack")  
 
     Scott McClure
     scottie_DOT_mcclure@gmail.com
