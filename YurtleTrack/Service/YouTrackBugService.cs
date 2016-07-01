@@ -195,7 +195,7 @@ namespace YurtleTrack.Service
 			string matched = "-1";
 			try
 			{
-				Match match = Regex.Match(response, "^callback\\(\"(?<num>-*\\d+)\"\\)$");
+				Match match = Regex.Match(response, "^callback\\(\\{\"value\":(?<num>-*\\d+)\\}\\)$");
 				if(match.Success)
 					matched = match.Groups["num"].Value;
 			}
