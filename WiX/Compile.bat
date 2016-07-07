@@ -1,5 +1,5 @@
 @ECHO OFF
-SET BIN=C:\Program Files (x86)\WiX Toolset v3.9\bin
+SET BIN=C:\Program Files (x86)\WiX Toolset v3.10\bin
 SET YurtleVersion=%1
 
 SET Platform=x64
